@@ -398,6 +398,7 @@ class TestCatalog(TestCase):
         restore_temp_catalog(backup_dir)
         assert_(len(files) == 1)
 
+    @skip_on_windows
     def test_access_writable_file(self):
         # There should always be a writable file -- even if it is in temp
         q = catalog.catalog()
@@ -470,6 +471,7 @@ class TestCatalog(TestCase):
         for i in funcs:
             assert_(i in pfuncs)
 
+    @skip_on_windows
     def test_add_function_ordered(self):
         backup_dir = clear_temp_catalog()
         q = catalog.catalog()
